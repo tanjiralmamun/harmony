@@ -1,0 +1,109 @@
+/* 
+ * 
+ * CSS for the product gallery. 
+ *
+ */
+ #harmony-product-gallery {
+    position: relative;
+}
+
+@media ( min-width: 480px ) {
+    #harmony-product-gallery {
+        float: left;
+        width: 48%;
+    }
+}
+#harmony-product-gallery .flexslider {
+    border: 2px solid #eee;
+    padding: 5px;
+    box-shadow: unset;
+}
+#harmony-product-gallery .flex-control-thumbs {
+    margin: 0;
+}
+#harmony-product-gallery .flex-control-thumbs li {
+    border: 2px solid #eee;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#harmony-product-gallery li.featured-video iframe {
+    width: 100%;
+}
+#wpmedia-video-content {
+    width: 100%;
+    height: 360px;
+    background-color: #000000;
+}
+
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next {
+    overflow: visible;
+    top: 40%;
+}
+
+#harmony-product-gallery .flexslider a{
+    cursor: default;
+}
+#harmony-product-gallery .harmony-gallery_trigger {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    font-size: 2em;
+    z-index: 9;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    text-indent: -9999px;
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+#harmony-product-gallery .harmony-gallery_trigger::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    box-sizing: content-box;
+}
+#harmony-product-gallery .harmony-gallery_trigger::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #000;
+    border-radius: 6px;
+    position: absolute;
+    top: 19px;
+    left: 22px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: content-box;
+}
+
+.pswp__zoom-wrap {
+    text-align: center;
+}
+.harmony-youtube-video-wrapper,
+.harmony-wpmedia-video-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+}
+@media(max-width: 480px){
+    .harmony-youtube-video-wrapper iframe,
+    .harmony-wpmedia-video-wrapper {
+        width: 300px;
+        height: 300px;
+    }
+
+    .harmony-wpmedia-video-wrapper video {
+        width: 100%;
+    }
+}

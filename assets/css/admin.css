@@ -1,0 +1,48 @@
+/* 
+ * 
+ * CSS for input fields
+ *
+ */
+#woocommerce-product-data ul.wc-tabs li.harmony_options a::before{
+    content: '\f104';
+}
+h3.harmony_content_panel_title {
+    margin: 0;
+    padding: 5px 12px 0;
+}
+
+.harmony_type_container {
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+.harmony-option-group-wrapper hr {
+    width: 98%;
+}
+.harmony-option-group-wrapper .form-field {
+    display: none;
+}
+.harmony_active {
+    display: block !important;
+}
+
+.harmony-option-group-wrapper .harmony_type_container label {
+    margin-left: 0;
+    padding: 5px 12px 0;
+    width: auto;
+}
+
+a.harmony_upload_file_button {
+    display: inline-block;
+    color: #2271b1;
+    border-color: #2271b1;
+    background: #f6f7f7;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    padding: 0 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    margin-left: 10px;
+}
