@@ -96,6 +96,39 @@
     left: 50%;
     transform: translate( -50%, -50%);
 }
+
+/*
+* Dokan Vendor Dashboard - Harmony Content Section Style
+*/
+.harmony-content input {
+    padding: 6px;
+    border-radius: 4px;
+}
+.harmony-dk-sub-heading {
+    margin: 0 0 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#harmony-dk-wpmedia-video-file {
+    width: 79%;
+    float: left;
+}
+.harmony-dk-upload-file-btn {
+    margin-left: 1%;
+    width: 20%;
+    overflow: hidden;
+}
+.harmony-content .dokan-form-group {
+    display: none;
+}
+.harmony-dk-active {
+    display: block !important;
+}
+/*
+*
+* Style for Mobile Responsive
+*
+*/
 @media(max-width: 480px){
     .harmony-youtube-video-wrapper iframe,
     .harmony-wpmedia-video-wrapper {

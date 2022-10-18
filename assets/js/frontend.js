@@ -215,4 +215,66 @@ jq( document ).ready( function() {
         })
     } )
 
+    /** 
+     * 
+     * Dokan Vendor Dashboard - Work with Product Video Radio select
+     * 
+    */
+    jq( 'input[name="harmony_featured_video_type"]' ).on( 'change', function(){
+        var featuredVideoType = jq( this ).val();
+        
+        if( featuredVideoType == 'youtube_video' ){
+            jq( '.harmony-dk-wpmedia-video' ).removeClass( 'harmony-dk-active' );
+            jq( '.harmony-dk-youtube-video' ).addClass( 'harmony-dk-active' );
+        } else if ( featuredVideoType == 'wpmedia_video' ) {
+            jq( '.harmony-dk-youtube-video' ).removeClass( 'harmony-dk-active' );
+            jq( '#harmony_youtube_video' ).removeAttr( 'checked' );
+            jq( '.harmony-dk-wpmedia-video' ).addClass( 'harmony-dk-active' );
+        }
+    } )
+
+    /*
+    *
+    * Video Upload/WP Media Upload Window Field for Custom Uploaded Video
+    * 
+    */
+    jq( 'a.harmony-dk-upload-file-btn' ).on( 'click', function( e ){
+        e.preventDefault();
+
+        var harmonyDKUploadFrame,
+            harmonyDKUploadButton = jq( this ),
+            videoDKURLContainer = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-video-file' ),
+            audioDKURLContainer = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-audio-file' );
+        
+        // If the media frame already exists, reopen it.
+        if ( harmonyDKUploadFrame ) {
+            harmonyDKUploadFrame.open();
+            return;
+        }
+
+        harmonyDKUploadFrame = wp.media({
+            title: videoDKURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
+            library: {
+                type: videoDKURLContainer.length > 0 ? 'video' : 'audio'
+            },
+            button: {
+                text: videoDKURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
+            },
+            multiple: false
+        })
+
+        harmonyDKUploadFrame.on( 'select', function(){
+            var dkAttachment = harmonyDKUploadFrame.state().get('selection').first().toJSON();
+            if( videoDKURLContainer.length > 0 ){
+                videoDKURLContainer.val( dkAttachment.url );
+            } else {
+                audioDKURLContainer.val( dkAttachment.url );
+            }
+        } )
+
+        harmonyDKUploadFrame.open();
+
+    } )
+
+
 } );

@@ -9,13 +9,12 @@ class Frontend {
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
+        add_action( 'dokan_product_edit_after_main', [ $this, 'load_harmony_content_template' ], 4, 2 );
 
         add_action( 'dokan_new_product_after_product_tags', [ $this, 'harmony_vendor_add_product_video_url' ] );
 
-        add_action( 'dokan_product_edit_after_product_tags', [ $this, 'harmony_vendor_edit_product_video_url' ], 10, 2 );
-
         add_action( 'dokan_new_product_added', [ $this, 'harmony_dk_product_video_url_save' ], 10, 2 );
-        add_action( 'dokan_product_updated', [ $this, 'harmony_dk_product_video_url_save' ], 10, 2 );
+        add_action( 'dokan_product_updated', [ $this, 'harmony_dk_product_video_url_save' ] );
     }
 
     /**
@@ -26,6 +25,16 @@ class Frontend {
     public function enqueue_scripts(){
         wp_enqueue_style( 'harmony-frontend' );
         wp_enqueue_script( 'harmony-frontend' );
+    }
+
+    /**
+     * It loads a template file that contains a form that allows a vendor to add a new product
+     * 
+     * @param post The post object
+     * @param post_id The post ID of the post you want to load the template for.
+     */
+    public function load_harmony_content_template( $post, $post_id ){
+        require_once HARMONY_INCLUDES . '/dokan-vendor.php';
     }
 
     /**
@@ -41,42 +50,22 @@ class Frontend {
     }
 
     /**
-     * It adds a new input field to the product edit page in the vendor dashboard
-     * 
-     * @param post The post object
-     * @param post_id The post ID of the product.
-     */
-    public function harmony_vendor_edit_product_video_url( $post, $post_id ){
-        ?>
-
-        <div class="dokan-form-group">
-        <label for="harmony_youtube_video" class="form-label"><?php esc_html_e( 'Product Video URL', 'harmony' ) ?></label>    
-
-        <?php
-            dokan_post_input_box( 
-                $post_id,
-                'harmony_youtube_video', 
-                [
-                    'placeholder'   => __( 'Enter Video URL', 'harmony' )
-                ]
-            );
-        ?>
-
-        </div>
-        <?php
-    }
-
-    /**
      * Save the vendor featured video url field value
      * 
      * @param post_id The ID of the post being saved.
      * @param data The data that is being saved.
      */
-    public function harmony_dk_product_video_url_save( $post_id, $data ){
-        $dk_product_video_url = $data['harmony_youtube_video'];
+    public function harmony_dk_product_video_url_save( $post_id ){
+        if( !empty($_POST['harmony_featured_video_type']) ){
+            update_post_meta( $post_id, 'harmony_featured_video_type', $_POST['harmony_featured_video_type'] );
+        }
 
-        if( isset( $dk_product_video_url ) ){
-            update_post_meta( $post_id, 'harmony_youtube_video', wp_kses_post( $dk_product_video_url ) );
+        if( !empty($_POST['harmony_youtube_video']) ){
+            update_post_meta( $post_id, 'harmony_youtube_video', $_POST['harmony_youtube_video'] );
+        }
+
+        if( !empty($_POST['harmony_wpmedia_video']) ){
+            update_post_meta( $post_id, 'harmony_wpmedia_video', $_POST['harmony_wpmedia_video'] );
         }
     }
 
