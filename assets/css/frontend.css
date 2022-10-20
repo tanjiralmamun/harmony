@@ -109,7 +109,8 @@
     font-size: 14px;
     font-weight: bold;
 }
-#harmony-dk-wpmedia-video-file {
+#harmony-dk-wpmedia-video-file, 
+#harmony-dk-wpmedia-audio-file {
     width: 79%;
     float: left;
 }
@@ -117,6 +118,9 @@
     margin-left: 1%;
     width: 20%;
     overflow: hidden;
+}
+.harmony-video-content {
+    border-bottom: 1px solid #ebebeb;
 }
 .harmony-content .dokan-form-group {
     display: none;

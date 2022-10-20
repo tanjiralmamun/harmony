@@ -15,12 +15,12 @@ class Admin {
 
         /* Admin Screen - Product Video Fields */
         add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_video_url_field' ], 10 );
-        add_action( 'woocommerce_process_product_meta', [ $this, 'save_harmony_product_video_url' ], 10, 2 );
-
 
         /* Admin Screen - Product Audio Fields */
         add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_audio_url_field' ], 11 );
-        add_action( 'woocommerce_process_product_meta', [ $this, 'save_harmony_product_audio_url' ], 10, 2 );
+
+        /* Admin Screen - Save Fields' Values */
+        add_action( 'woocommerce_process_product_meta', [ $this, 'save_harmony_field_values' ], 10, 2 );
 
     }
 
@@ -132,31 +132,8 @@ class Admin {
     }
 
     /**
-     * Save Admin Screen - Product Video Section values
      * 
-     * @since 1.0
-     * 
-     * @param id The post ID.
-     * @param post The post object.
-     * 
-     */
-    function save_harmony_product_video_url( $id, $post ){
-        if( !empty($_POST['harmony_featured_video_type']) ){
-            update_post_meta( $id, 'harmony_featured_video_type', $_POST['harmony_featured_video_type'] );
-        }
-
-        if( !empty($_POST['harmony_youtube_video']) ){
-            update_post_meta( $id, 'harmony_youtube_video', $_POST['harmony_youtube_video'] );
-        }
-
-        if( !empty($_POST['harmony_wpmedia_video']) ){
-            update_post_meta( $id, 'harmony_wpmedia_video', $_POST['harmony_wpmedia_video'] );
-        }
-    }
-
-    /**
-     * 
-     * Adding Admin Screen - Product Video Section via Harmony tab
+     * Adding Admin Screen - Product Audio Section via Harmony tab
      * 
      * It creates a custom meta box for the product post type that allows the user to upload an audio
      * file or enter a SoundCloud URL
@@ -223,14 +200,28 @@ class Admin {
     }
     
     /**
-     * Save Admin Screen - Product Audio Section values
+     * Save Admin Screen Field Values
      * 
      * @since 1.0
      * 
      * @param id The post ID.
      * @param post The post object.
      */
-    function save_harmony_product_audio_url( $id, $post ){
+    function save_harmony_field_values( $id, $post ){
+        /* Save Video Content values */
+        if( !empty($_POST['harmony_featured_video_type']) ){
+            update_post_meta( $id, 'harmony_featured_video_type', $_POST['harmony_featured_video_type'] );
+        }
+
+        if( !empty($_POST['harmony_youtube_video']) ){
+            update_post_meta( $id, 'harmony_youtube_video', $_POST['harmony_youtube_video'] );
+        }
+
+        if( !empty($_POST['harmony_wpmedia_video']) ){
+            update_post_meta( $id, 'harmony_wpmedia_video', $_POST['harmony_wpmedia_video'] );
+        }
+
+        /* Save Audio Content values */
         if( !empty( $_POST['harmony_product_audio_type'] ) ){
             update_post_meta( $id, 'harmony_product_audio_type', $_POST['harmony_product_audio_type'] );
         }

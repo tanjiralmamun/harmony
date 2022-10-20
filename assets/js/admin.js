@@ -19,7 +19,6 @@ jq( document ).ready( function(){
             jq( '.harmony-option-group-wrapper #harmony_youtube_video' ).removeAttr( 'checked' );
             jq( '.harmony-option-group-wrapper .harmony_wpmedia_video_field' ).addClass( 'harmony_active' );
         }
-
     } )
 
     /** 
@@ -28,7 +27,7 @@ jq( document ).ready( function(){
      * 
     */
     
-     jq( 'input[name="harmony_product_audio_type"]' ).on( 'change', function(){
+    jq( 'input[name="harmony_product_audio_type"]' ).on( 'change', function(){
         var productAudioType = jq( this ).val();
         
         if( productAudioType == 'sc_audio' ){
@@ -39,7 +38,6 @@ jq( document ).ready( function(){
             jq( '.harmony-option-group-wrapper #harmony_sc_audio' ).removeAttr( 'checked' );
             jq( '.harmony-option-group-wrapper .harmony_wpmedia_audio_field' ).addClass( 'harmony_active' );
         }
-
     } )
 
     /*

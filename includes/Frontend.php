@@ -56,6 +56,7 @@ class Frontend {
      * @param data The data that is being saved.
      */
     public function harmony_dk_product_video_url_save( $post_id ){
+        /* Save Video Content values */
         if( !empty($_POST['harmony_featured_video_type']) ){
             update_post_meta( $post_id, 'harmony_featured_video_type', $_POST['harmony_featured_video_type'] );
         }
@@ -66,6 +67,18 @@ class Frontend {
 
         if( !empty($_POST['harmony_wpmedia_video']) ){
             update_post_meta( $post_id, 'harmony_wpmedia_video', $_POST['harmony_wpmedia_video'] );
+        }
+
+        /* Save Audio Content values */
+        if( !empty( $_POST['harmony_product_audio_type'] ) ){
+            update_post_meta( $post_id, 'harmony_product_audio_type', $_POST['harmony_product_audio_type'] );
+        }
+    
+        if( !empty( $_POST['harmony_soundcloud'] ) ){
+            update_post_meta( $post_id, 'harmony_soundcloud', $_POST['harmony_soundcloud'] );
+        }
+        if( !empty( $_POST['harmony_soundcloud'] ) ){
+            update_post_meta( $post_id, 'harmony_wpmedia_audio', $_POST['harmony_wpmedia_audio'] );
         }
     }
 

@@ -8,7 +8,7 @@
         <div class="dokan-clearfix"></div>
     </div>
 
-    <div class="dokan-section-content">
+    <div class="dokan-section-content harmony-video-content">
         <h3 class="harmony-dk-sub-heading">Product Video</h3>
 
         <?php
@@ -50,5 +50,55 @@
             <a href="#" class="dokan-btn dokan-btn-default dokan-btn-theme harmony-dk-upload-file-btn">Choose File</a>
         </div>
         <div class="dokan-clearfix"></div>
-    </div><!-- .dokan-side-right -->
-</div><!-- .dokan-product-inventory -->
+    </div>
+    <!-- Harmony Video Content -->
+
+    <div class="dokan-section-content harmony-audio-content">
+        <h3 class="harmony-dk-sub-heading">Product Audio</h3>
+
+        <?php
+    
+            $product_audio_type = get_post_meta( get_the_ID(), 'harmony_product_audio_type', true );
+    
+            if( $product_audio_type == 'sc_audio' || $product_audio_type == '' ){
+                $sc_audio_radio = 'checked';
+                $sc_audio_input = 'harmony-dk-active';
+            } elseif ( $product_audio_type == 'wpmedia_audio' ){
+                $wpmedia_audio_radio = 'checked';
+                $wpmedia_audio_input = 'harmony-dk-active';
+            }
+    
+        ?>
+
+        <div class="harmony_type_container">
+            <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php echo $sc_audio_radio; ?>> SoundCloud</label>
+            <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php echo $wpmedia_audio_radio; ?>> File Upload</label>
+        </div>
+
+        <div class="dokan-form-group harmony-dk-sc-audio <?php echo esc_attr( $sc_audio_input ); ?>">
+            <?php
+                dokan_post_input_box( 
+                    $post_id,
+                    'harmony_soundcloud', 
+                    [
+                        'placeholder'   => __( 'Paste SoundCloud URL', 'harmony' )
+                    ]
+                );
+            ?>
+        </div>
+
+        <div class="dokan-form-group harmony-dk-wpmedia-audio <?php echo esc_attr( $wpmedia_audio_input ); ?>">
+            <?php
+                $harmony_wpmedia_audio =  get_post_meta( $post_id, 'harmony_wpmedia_audio', true );
+            ?>
+
+            <input type="text" name="harmony_wpmedia_audio" id="harmony-dk-wpmedia-audio-file" class="dokan-form-control" value="<?php echo esc_url( $harmony_wpmedia_audio ); ?>">
+            
+            <a href="#" class="dokan-btn dokan-btn-default dokan-btn-theme harmony-dk-upload-file-btn">Choose File</a>
+        </div>
+
+        <div class="dokan-clearfix"></div>
+    </div>
+    <!-- Harmony Audio Content -->
+    
+</div><!-- Harmony Content -->

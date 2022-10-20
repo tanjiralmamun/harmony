@@ -233,6 +233,25 @@ jq( document ).ready( function() {
         }
     } )
 
+    /** 
+     * 
+     * Work with Product Audio Radio select
+     * 
+    */
+    
+    jq( 'input[name="harmony_product_audio_type"]' ).on( 'change', function(){
+        var productAudioType = jq( this ).val();
+        
+        if( productAudioType == 'sc_audio' ){
+            jq( '.harmony-dk-wpmedia-audio' ).removeClass( 'harmony-dk-active' );
+            jq( '.harmony-dk-sc-audio' ).addClass( 'harmony-dk-active' );
+        } else if ( productAudioType == 'wpmedia_audio' ) {
+            jq( '.harmony-dk-sc-audio' ).removeClass( 'harmony-dk-active' );
+            jq( '#harmony_sc_audio' ).removeAttr( 'checked' );
+            jq( '.harmony-dk-wpmedia-audio' ).addClass( 'harmony-dk-active' );
+        }
+    } )
+
     /*
     *
     * Video Upload/WP Media Upload Window Field for Custom Uploaded Video
