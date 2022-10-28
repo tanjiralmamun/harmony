@@ -41,17 +41,13 @@ jq( document ).ready( function() {
         setTimeout( () => {
 
             var previousThumbWidth  = jq('.flex-control-nav li:eq(1) img').width(),
-                previousThumbHeight = jq('.flex-control-nav li:eq(1) img').height(),
-                previousImgHeight   = jq( '.flexslider' ).find('ul.slides li:eq(1) img').height();
+                previousThumbHeight = jq('.flex-control-nav li:eq(1) img').height()
 
             jq('.flex-control-nav li:eq(0) img').css({
                 'width'     : previousThumbWidth + 'px',
                 'height'    : previousThumbHeight + 'px',
                 'object-fit': 'cover'
             });
-
-            jq( '#youtube-video-content' ).css( 'height', previousImgHeight );
-            jq( '.featured-video.youtube' ).css( 'height', previousImgHeight );
 
         }, 200 )
 

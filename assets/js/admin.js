@@ -49,9 +49,10 @@ jq( document ).ready( function(){
         e.preventDefault();
 
         var harmonyUploadFrame,
-            harmonyUploadButton = jq( this ),
-            videoURLContainer = harmonyUploadButton.prev( 'input#harmony_wpmedia_video_file' ),
-            audioURLContainer = harmonyUploadButton.prev( 'input#harmony_wpmedia_audio_file' );
+            harmonyUploadButton     = jq( this ),
+            videoPosterContainer    = harmonyUploadButton.prev( 'input#harmony-wpmedia-poster' ),
+            videoURLContainer       = harmonyUploadButton.prev( 'input#harmony-wpmedia-video' ),
+            audioURLContainer       = harmonyUploadButton.prev( 'input#harmony_wpmedia_audio_file' );
         
         // If the media frame already exists, reopen it.
         if ( harmonyUploadFrame ) {
@@ -60,19 +61,21 @@ jq( document ).ready( function(){
         }
 
         harmonyUploadFrame = wp.media({
-            title: videoURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
+            title: videoPosterContainer.length > 0 ? 'Select or Upload a Photo File' : videoURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
             library: {
-                type: videoURLContainer.length > 0 ? 'video' : 'audio'
+                type: videoPosterContainer.length > 0 ? 'image' : videoURLContainer.length > 0 ? 'video' : 'audio'
             },
             button: {
-                text: videoURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
+                text: videoPosterContainer.length > 0 ? 'Add Photo' : videoURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
             },
             multiple: false
         })
 
         harmonyUploadFrame.on( 'select', function(){
             var attachment = harmonyUploadFrame.state().get('selection').first().toJSON();
-            if( videoURLContainer.length > 0 ){
+            if( videoPosterContainer.length > 0 ){
+                videoPosterContainer.val( attachment.url );
+            } else if( videoURLContainer.length > 0 ) {
                 videoURLContainer.val( attachment.url );
             } else {
                 audioURLContainer.val( attachment.url );

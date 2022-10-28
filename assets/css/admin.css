@@ -19,7 +19,7 @@ h3.harmony_content_panel_title {
 .harmony-option-group-wrapper hr {
     width: 98%;
 }
-.harmony-option-group-wrapper .form-field {
+.harmony-option-group-wrapper .harmony-form-field {
     display: none;
 }
 .harmony_active {

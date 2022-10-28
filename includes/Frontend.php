@@ -43,7 +43,9 @@ class Frontend {
     public function harmony_vendor_add_product_video_url(){
         ?>
             <div class="dokan-form-group">
-                <label for="harmony-video-url" class="dokan-form-label"><?php esc_html_e( 'Product Video URL', 'harmony' ); ?></label>
+                <label for="harmony-video-url" class="dokan-form-label">
+                    <?php __( 'Product Video URL', 'harmony' ); ?>
+                </label>
                 <input class="dokan-form-control" name="harmony_youtube_video" id="harmony-video-url" type="text" placeholder="<?php esc_attr_e( 'Enter Video URL', 'harmony' ); ?>" value="<?php echo esc_attr( dokan_posted_input( 'harmony_youtube_video' ) ); ?>">
             </div>
         <?php

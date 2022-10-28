@@ -17,7 +17,7 @@
 
     <?php if( $product_audio_type == 'wpmedia_audio' && !empty( $wpmedia_url ) ): ?>
 
-        <audio id="wpmedia-audio-content" controls><source src="<?php echo esc_url( $wpmedia_url ); ?>"></audio>
+        <audio id="wpmedia-audio-content" controls><source src="<?php echo esc_attr( $wpmedia_url ); ?>"></audio>
 
     <?php endif; ?>
 

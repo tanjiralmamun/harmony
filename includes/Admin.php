@@ -79,7 +79,11 @@ class Admin {
     function harmony_product_video_url_field(){
         ?>
 
-        <h3 class="harmony_content_panel_title">Product Video</h3><hr>
+        <h3 class="harmony_content_panel_title">
+            <?php __( 'Product Video', 'harmony' ); ?>
+        </h3>
+        
+        <hr>
 
         <?php
 
@@ -97,8 +101,12 @@ class Admin {
 
         <div class="options_group harmony-option-group-wrapper harmony-product_featured_video">
             <div class="harmony_type_container">
-                <label for="harmony_youtube_video"><input type="radio" name="harmony_featured_video_type" value="youtube_video" id="harmony_youtube_video" <?php echo $youtube_video_radio; ?>> YouTube</label>
-                <label for="harmony_wpmedia_video"><input type="radio" name="harmony_featured_video_type" value="wpmedia_video" id="harmony_wpmedia_video" <?php echo $wpmedia_video_radio; ?>> File Upload</label>
+                <label for="harmony_youtube_video"><input type="radio" name="harmony_featured_video_type" value="youtube_video" id="harmony_youtube_video" <?php echo esc_attr( $youtube_video_radio ); ?>> 
+                    <?php __( 'YouTube', 'harmony' ); ?>
+                </label>
+                <label for="harmony_wpmedia_video"><input type="radio" name="harmony_featured_video_type" value="wpmedia_video" id="harmony_wpmedia_video" <?php echo esc_attr( $wpmedia_video_radio ); ?>> 
+                    <?php __( 'File Upload', 'harmony' ); ?>
+                </label>
             </div>
 
             <hr>
@@ -110,21 +118,43 @@ class Admin {
                     'label'         => __( 'Product Video URL', 'harmony' ),
                     'description'   => __( 'YouTube Video URL', 'harmony' ),
                     'desc_tip'      => true,
-                    'wrapper_class' => $youtube_video_input
+                    'wrapper_class' => 'harmony-form-field ' . $youtube_video_input
                 ] );
             ?>
 
-            <p class="form-field harmony_wpmedia_video_field <?php echo $wpmedia_video_input; ?>">
-                <label for="harmony_wpmedia_video_file">Product Video URL</label>
+            <div class="harmony-form-field harmony_wpmedia_video_field <?php echo esc_attr( $wpmedia_video_input ); ?>">
+                <p class="form-field harmony_wpmedia_poster_input">
+                    <label for="harmony-wpmedia-poster">
+                        <?php __( 'Product Video Poster', 'harmony' ); ?>
+                    </label>
 
-                <?php
-                    $harmony_wpmedia_video =  get_post_meta( get_the_ID(), 'harmony_wpmedia_video', true );
-                ?>
+                    <?php
+                        $harmony_wpmedia_poster =  get_post_meta( get_the_ID(), 'harmony_wpmedia_poster', true );
+                    ?>
 
-                <input type="text" name="harmony_wpmedia_video" id="harmony_wpmedia_video_file" value="<?php echo esc_url( $harmony_wpmedia_video ); ?>">
-                
-                <a href="#" class="harmony_upload_file_button">Choose File</a>
-            </p>
+                    <input type="text" name="harmony_wpmedia_poster" id="harmony-wpmedia-poster" value="<?php echo esc_attr( $harmony_wpmedia_poster ); ?>">
+                    
+                    <a href="#" class="harmony_upload_file_button">
+                        <?php __( 'Choose File', 'harmony' ); ?>
+                    </a>
+                </p>
+
+                <p class="form-field harmony_wpmedia_video_input">
+                    <label for="harmony-wpmedia-video">
+                        <?php __( 'Product Video URL', 'harmony' ); ?>
+                    </label>
+
+                    <?php
+                        $harmony_wpmedia_video =  get_post_meta( get_the_ID(), 'harmony_wpmedia_video', true );
+                    ?>
+
+                    <input type="text" name="harmony_wpmedia_video" id="harmony-wpmedia-video" value="<?php echo esc_attr( $harmony_wpmedia_video ); ?>">
+                    
+                    <a href="#" class="harmony_upload_file_button">
+                        <?php __( 'Choose File', 'harmony' ); ?>
+                    </a>
+                </p>
+            </div>
 
         </div>
 
@@ -144,7 +174,11 @@ class Admin {
     function harmony_product_audio_url_field(){
         ?>
     
-        <h3 class="harmony_content_panel_title">Product Audio</h3><hr>
+        <h3 class="harmony_content_panel_title">
+            <?php __( 'Product Audio', 'harmony' ) ?>
+        </h3>
+        
+        <hr>
     
         <?php
     
@@ -163,8 +197,12 @@ class Admin {
         <div class="options_group harmony-option-group-wrapper harmony-product_sample_audio">
     
             <div class="harmony_type_container">
-                <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php echo $sc_audio_radio; ?>> SoundCloud</label>
-                <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php echo $wpmedia_audio_radio; ?>> File Upload</label>
+                <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php echo esc_attr( $sc_audio_radio ); ?>> 
+                    <?php __( 'SoundCloud', 'harmony' ) ?>
+                </label>
+                <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php echo esc_attr( $wpmedia_audio_radio ); ?>> 
+                    <?php __( 'File Upload', 'harmony' ) ?>
+                </label>
             </div>
     
             <hr>
@@ -177,21 +215,25 @@ class Admin {
                     'label'         => __( 'Product Audio URL', 'harmony' ),
                     'description'   => __( 'Soundcloud URL', 'harmony' ),
                     'desc_tip'      => true,
-                    'wrapper_class' => $sc_audio_input
+                    'wrapper_class' => 'harmony-form-field ' . $sc_audio_input
                 ] );
     
             ?>
     
-            <p class="form-field harmony_wpmedia_audio_field <?php echo $wpmedia_audio_input; ?>">
-                <label for="harmony_wpmedia_audio_file">Product Audio URL</label>
+            <p class="form-field harmony-form-field harmony_wpmedia_audio_field <?php echo esc_attr( $wpmedia_audio_input ) ; ?>">
+                <label for="harmony_wpmedia_audio_file">
+                    <?php __( 'Product Audio URL', 'harmony' ); ?>
+                </label>
     
                 <?php
                     $harmony_wpmedia_audio =  get_post_meta( get_the_ID(), 'harmony_wpmedia_audio', true );
                 ?>
     
-                <input type="text" name="harmony_wpmedia_audio" id="harmony_wpmedia_audio_file" value="<?php echo esc_url( $harmony_wpmedia_audio ); ?>">
+                <input type="text" name="harmony_wpmedia_audio" id="harmony_wpmedia_audio_file" value="<?php echo esc_attr( $harmony_wpmedia_audio ); ?>">
                 
-                <a href="#" class="harmony_upload_file_button">Choose File</a>
+                <a href="#" class="harmony_upload_file_button">
+                    <?php __( 'Choose File', 'harmony' ); ?>
+                </a>
             </p>
     
         </div>
@@ -209,27 +251,28 @@ class Admin {
      */
     function save_harmony_field_values( $id, $post ){
         /* Save Video Content values */
-        if( !empty($_POST['harmony_featured_video_type']) ){
+        if( isset($_POST['harmony_featured_video_type']) ){
             update_post_meta( $id, 'harmony_featured_video_type', $_POST['harmony_featured_video_type'] );
         }
-
-        if( !empty($_POST['harmony_youtube_video']) ){
+        if( isset($_POST['harmony_youtube_video']) ){
             update_post_meta( $id, 'harmony_youtube_video', $_POST['harmony_youtube_video'] );
         }
-
-        if( !empty($_POST['harmony_wpmedia_video']) ){
+        if( isset($_POST['harmony_wpmedia_poster']) ){
+            update_post_meta( $id, 'harmony_wpmedia_poster', $_POST['harmony_wpmedia_poster'] );
+        }
+        if( isset($_POST['harmony_wpmedia_video']) ){
             update_post_meta( $id, 'harmony_wpmedia_video', $_POST['harmony_wpmedia_video'] );
         }
 
         /* Save Audio Content values */
-        if( !empty( $_POST['harmony_product_audio_type'] ) ){
+        if( isset( $_POST['harmony_product_audio_type'] ) ){
             update_post_meta( $id, 'harmony_product_audio_type', $_POST['harmony_product_audio_type'] );
         }
     
-        if( !empty( $_POST['harmony_soundcloud'] ) ){
+        if( isset( $_POST['harmony_soundcloud'] ) ){
             update_post_meta( $id, 'harmony_soundcloud', $_POST['harmony_soundcloud'] );
         }
-        if( !empty( $_POST['harmony_soundcloud'] ) ){
+        if( isset( $_POST['harmony_wpmedia_audio'] ) ){
             update_post_meta( $id, 'harmony_wpmedia_audio', $_POST['harmony_wpmedia_audio'] );
         }
     }

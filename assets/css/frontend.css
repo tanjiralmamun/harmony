@@ -27,6 +27,9 @@
     margin-top: 5px;
 }
 
+#harmony-product-gallery li.featured-video {
+    min-height: 365px;
+}
 #harmony-product-gallery li.featured-video iframe {
     width: 100%;
 }
