@@ -8,7 +8,8 @@ jq( document ).ready( function() {
         controlNav: "thumbnails",
         animationLoop: false,
         slideshow: false,
-        directionNav: false
+        directionNav: false,
+        smoothHeight: true
     });
 
     jq('.flex-prev').empty();
