@@ -169,7 +169,8 @@ final class Harmony {
         require_once HARMONY_INCLUDES . '/Assets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once HARMONY_INCLUDES . '/Admin.php';
+            require_once HARMONY_INCLUDES . '/Admin/Admin.php';
+            require_once HARMONY_INCLUDES . '/Admin/Products.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
@@ -225,7 +226,8 @@ final class Harmony {
         $this->container['assets']  = new Harmony\Assets();
 
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin']  = new Harmony\Admin();
+            $this->container['admin']       = new Harmony\Admin();
+            $this->container['products']    = new Harmony\Admin\Products();
         }
 
         if ( $this->is_request( 'frontend' ) ) {

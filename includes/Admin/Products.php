@@ -1,14 +1,23 @@
 <?php
-namespace Harmony;
+namespace Harmony\Admin;
 
 /**
- * Admin Pages Handler
+ * 
+ * Admin Product Class
+ * 
+ * @since 1.0
+ * 
  */
-class Admin {
+class Products {
 
+    /**
+     * 
+     * Product Constructor
+     * 
+     * @since 1.0
+     * 
+     */
     public function __construct() {
-        add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-
         /* Admin Screen - New Tab */
         add_filter( 'woocommerce_product_data_tabs', [ $this, 'harmony_edit_product_tab' ] );
         add_action( 'woocommerce_product_data_panels', [ $this, 'harmony_edit_product_tab_content' ] );
@@ -21,17 +30,6 @@ class Admin {
 
         /* Admin Screen - Save Fields' Values */
         add_action( 'woocommerce_process_product_meta', [ $this, 'save_harmony_field_values' ], 10, 2 );
-
-    }
-
-    /**
-     * Load scripts and styles for the app
-     *
-     * @return void
-     */
-    public function enqueue_scripts() {
-        wp_enqueue_style( 'harmony-admin' );
-        wp_enqueue_script( 'harmony-admin' );
     }
 
     /**
@@ -80,7 +78,7 @@ class Admin {
         ?>
 
         <h3 class="harmony_content_panel_title">
-            <?php __( 'Product Video', 'harmony' ); ?>
+            <?php _e( 'Product Video', 'harmony' ); ?>
         </h3>
         
         <hr>
@@ -102,10 +100,10 @@ class Admin {
         <div class="options_group harmony-option-group-wrapper harmony-product_featured_video">
             <div class="harmony_type_container">
                 <label for="harmony_youtube_video"><input type="radio" name="harmony_featured_video_type" value="youtube_video" id="harmony_youtube_video" <?php echo esc_attr( $youtube_video_radio ); ?>> 
-                    <?php __( 'YouTube', 'harmony' ); ?>
+                    <?php _e( 'YouTube', 'harmony' ); ?>
                 </label>
                 <label for="harmony_wpmedia_video"><input type="radio" name="harmony_featured_video_type" value="wpmedia_video" id="harmony_wpmedia_video" <?php echo esc_attr( $wpmedia_video_radio ); ?>> 
-                    <?php __( 'File Upload', 'harmony' ); ?>
+                    <?php _e( 'File Upload', 'harmony' ); ?>
                 </label>
             </div>
 
@@ -125,7 +123,7 @@ class Admin {
             <div class="harmony-form-field harmony_wpmedia_video_field <?php echo esc_attr( $wpmedia_video_input ); ?>">
                 <p class="form-field harmony_wpmedia_poster_input">
                     <label for="harmony-wpmedia-poster">
-                        <?php __( 'Product Video Poster', 'harmony' ); ?>
+                        <?php _e( 'Product Video Poster', 'harmony' ); ?>
                     </label>
 
                     <?php
@@ -135,13 +133,13 @@ class Admin {
                     <input type="text" name="harmony_wpmedia_poster" id="harmony-wpmedia-poster" value="<?php echo esc_attr( $harmony_wpmedia_poster ); ?>">
                     
                     <a href="#" class="harmony_upload_file_button">
-                        <?php __( 'Choose File', 'harmony' ); ?>
+                        <?php _e( 'Choose File', 'harmony' ); ?>
                     </a>
                 </p>
 
                 <p class="form-field harmony_wpmedia_video_input">
                     <label for="harmony-wpmedia-video">
-                        <?php __( 'Product Video URL', 'harmony' ); ?>
+                        <?php _e( 'Product Video URL', 'harmony' ); ?>
                     </label>
 
                     <?php
@@ -151,7 +149,7 @@ class Admin {
                     <input type="text" name="harmony_wpmedia_video" id="harmony-wpmedia-video" value="<?php echo esc_attr( $harmony_wpmedia_video ); ?>">
                     
                     <a href="#" class="harmony_upload_file_button">
-                        <?php __( 'Choose File', 'harmony' ); ?>
+                        <?php _e( 'Choose File', 'harmony' ); ?>
                     </a>
                 </p>
             </div>
@@ -175,7 +173,7 @@ class Admin {
         ?>
     
         <h3 class="harmony_content_panel_title">
-            <?php __( 'Product Audio', 'harmony' ) ?>
+            <?php _e( 'Product Audio', 'harmony' ) ?>
         </h3>
         
         <hr>
@@ -198,10 +196,10 @@ class Admin {
     
             <div class="harmony_type_container">
                 <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php echo esc_attr( $sc_audio_radio ); ?>> 
-                    <?php __( 'SoundCloud', 'harmony' ) ?>
+                    <?php _e( 'SoundCloud', 'harmony' ) ?>
                 </label>
                 <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php echo esc_attr( $wpmedia_audio_radio ); ?>> 
-                    <?php __( 'File Upload', 'harmony' ) ?>
+                    <?php _e( 'File Upload', 'harmony' ) ?>
                 </label>
             </div>
     
@@ -222,7 +220,7 @@ class Admin {
     
             <p class="form-field harmony-form-field harmony_wpmedia_audio_field <?php echo esc_attr( $wpmedia_audio_input ) ; ?>">
                 <label for="harmony_wpmedia_audio_file">
-                    <?php __( 'Product Audio URL', 'harmony' ); ?>
+                    <?php _e( 'Product Audio URL', 'harmony' ); ?>
                 </label>
     
                 <?php
@@ -232,7 +230,7 @@ class Admin {
                 <input type="text" name="harmony_wpmedia_audio" id="harmony_wpmedia_audio_file" value="<?php echo esc_attr( $harmony_wpmedia_audio ); ?>">
                 
                 <a href="#" class="harmony_upload_file_button">
-                    <?php __( 'Choose File', 'harmony' ); ?>
+                    <?php _e( 'Choose File', 'harmony' ); ?>
                 </a>
             </p>
     
