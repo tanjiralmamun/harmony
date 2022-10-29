@@ -324,7 +324,7 @@ final class Harmony {
             return;
         }
 
-        require_once STOREKIT_INCLUDES . '/functions.php';
+        require_once HARMONY_INCLUDES . '/functions.php';
     }
 
 } // Harmony
