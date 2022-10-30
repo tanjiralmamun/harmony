@@ -258,9 +258,10 @@ jq( document ).ready( function() {
         e.preventDefault();
 
         var harmonyDKUploadFrame,
-            harmonyDKUploadButton = jq( this ),
-            videoDKURLContainer = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-video-file' ),
-            audioDKURLContainer = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-audio-file' );
+            harmonyDKUploadButton   = jq( this ),
+            videoDKPosterContainer  = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-poster' ),
+            videoDKURLContainer     = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-video-file' ),
+            audioDKURLContainer     = harmonyDKUploadButton.prev( 'input#harmony-dk-wpmedia-audio-file' );
         
         // If the media frame already exists, reopen it.
         if ( harmonyDKUploadFrame ) {
@@ -269,19 +270,21 @@ jq( document ).ready( function() {
         }
 
         harmonyDKUploadFrame = wp.media({
-            title: videoDKURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
+            title: videoDKPosterContainer.length > 0 ? 'Select or Upload a Photo File' : videoDKURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
             library: {
-                type: videoDKURLContainer.length > 0 ? 'video' : 'audio'
+                type: videoDKPosterContainer.length > 0 ? 'image' : videoDKURLContainer.length > 0 ? 'video' : 'audio'
             },
             button: {
-                text: videoDKURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
+                text: videoDKPosterContainer.length > 0 ? 'Add Photo' : videoDKURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
             },
             multiple: false
         })
 
         harmonyDKUploadFrame.on( 'select', function(){
             var dkAttachment = harmonyDKUploadFrame.state().get('selection').first().toJSON();
-            if( videoDKURLContainer.length > 0 ){
+            if( videoDKPosterContainer.length > 0 ){
+                videoDKPosterContainer.val( dkAttachment.url );
+            } else if ( videoDKURLContainer.length > 0 ) {
                 videoDKURLContainer.val( dkAttachment.url );
             } else {
                 audioDKURLContainer.val( dkAttachment.url );

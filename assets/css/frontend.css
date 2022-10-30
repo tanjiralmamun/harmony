@@ -112,6 +112,7 @@
     font-size: 14px;
     font-weight: bold;
 }
+#harmony-dk-wpmedia-poster,
 #harmony-dk-wpmedia-video-file, 
 #harmony-dk-wpmedia-audio-file {
     width: 79%;
@@ -124,6 +125,9 @@
 }
 .harmony-video-content {
     border-bottom: 1px solid #ebebeb;
+}
+.harmony-dk-input-group:first-child {
+    margin-bottom: 15px;
 }
 .harmony-content .dokan-form-group {
     display: none;

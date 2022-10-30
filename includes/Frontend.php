@@ -9,12 +9,16 @@ class Frontend {
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
+        // Replace and Load product image gallery template
         add_filter( 'wc_get_template', [ $this, 'harmony_product_gallery_template'], 10, 5 );
 
+        // Load audio player template
         add_action( 'woocommerce_before_add_to_cart_form', [ $this, 'harmony_audio_player'] );
 
+        // Load harmony content on the vendor dashboard
         add_action( 'dokan_product_edit_after_main', [ $this, 'load_harmony_content_template' ], 4, 2 );
 
+        //Save vendor dashboard harmony content field values
         add_action( 'dokan_new_product_added', [ $this, 'harmony_dk_product_video_url_save' ], 10, 2 );
         add_action( 'dokan_product_updated', [ $this, 'harmony_dk_product_video_url_save' ] );
     }
@@ -92,6 +96,10 @@ class Frontend {
 
         if( isset($_POST['harmony_youtube_video']) ){
             update_post_meta( $post_id, 'harmony_youtube_video', $_POST['harmony_youtube_video'] );
+        }
+
+        if( isset($_POST['harmony_wpmedia_poster']) ){
+            update_post_meta( $post_id, 'harmony_wpmedia_poster', $_POST['harmony_wpmedia_poster'] );
         }
 
         if( isset($_POST['harmony_wpmedia_video']) ){
