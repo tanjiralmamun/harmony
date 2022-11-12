@@ -153,7 +153,7 @@ jq( document ).ready( function() {
         var $index = jq( this ).index();
         var options = {
             index: $index,
-            bgOpacity: 0.7,
+            bgOpacity: 1,
             showHideOpacity: true
         }
         
