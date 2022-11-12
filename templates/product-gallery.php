@@ -58,7 +58,7 @@ foreach( $gallery_image_ids as $gallery_image_id ){
     $gallery_image_src              = wp_get_attachment_image_url( $gallery_image_id, 'full' );
     $gallery_image_info             = wp_get_attachment_image_src( $gallery_image_id, 'full' );
 
-    $html .= sprintf( '<li data-thumb="%s"><a href="%2$s" data-size="%dx%d"><img src="%2$s"/></a></li>', $gallery_image_thumbnail_src, $gallery_image_src, $gallery_image_info[1], $gallery_image_info[2] );
+    $html .= sprintf( '<li data-thumb="%1$s"><a href="%2$s" data-size="%3$dx%4$d"><img src="%2$s"/></a></li>', $gallery_image_thumbnail_src, $gallery_image_src, $gallery_image_info[1], $gallery_image_info[2] );
 }
 
 $html .= '</ul></div></div>';
