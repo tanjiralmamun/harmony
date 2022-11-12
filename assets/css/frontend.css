@@ -18,6 +18,12 @@
     padding: 5px;
     box-shadow: unset;
 }
+#harmony-product-gallery .flexslider .flex-viewport {
+    margin: 0;
+}
+#harmony-product-gallery .flexslider li {
+    margin: 0;
+}
 #harmony-product-gallery .flex-control-thumbs {
     margin: 0;
 }
