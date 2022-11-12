@@ -12,6 +12,15 @@
         float: left;
         width: 48%;
     }
+
+    /* 
+    * 
+    * Style for - Storefront Theme
+    *
+    */
+    .storefront-full-width-content.single-product #harmony-product-gallery {
+        width: 39.3%;
+    }
 }
 #harmony-product-gallery .flexslider {
     border: 2px solid #eee;
