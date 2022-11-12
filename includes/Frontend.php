@@ -29,6 +29,7 @@ class Frontend {
      * @return void
      */
     public function enqueue_scripts(){
+        wp_enqueue_style( 'harmony-flexslider' );
         wp_enqueue_style( 'harmony-frontend' );
         wp_enqueue_script( 'harmony-frontend' );
     }

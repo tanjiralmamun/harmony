@@ -97,6 +97,9 @@ class Assets {
             'harmony-admin' => [
                 'src'   => HARMONY_ASSETS . '/css/admin.css'
             ],
+            'harmony-flexslider' => [
+                'src'   => HARMONY_ASSETS . '/css/flexslider.css'
+            ],
             'harmony-frontend' => [
                 'src'   => HARMONY_ASSETS . '/css/frontend.css'
             ]
