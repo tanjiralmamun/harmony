@@ -19,7 +19,6 @@ class Frontend {
         add_action( 'dokan_product_edit_after_main', [ $this, 'load_harmony_content_template' ], 4, 2 );
 
         //Save vendor dashboard harmony content field values
-        add_action( 'dokan_new_product_added', [ $this, 'harmony_dk_product_video_url_save' ], 10, 2 );
         add_action( 'dokan_product_updated', [ $this, 'harmony_dk_product_video_url_save' ] );
     }
 
