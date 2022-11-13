@@ -1,4 +1,5 @@
-var jq = jQuery.noConflict();
+var jq = jQuery.noConflict(),
+    { __ } = wp.i18n;
 
 jq( document ).ready( function() {
 
@@ -91,8 +92,8 @@ jq( document ).ready( function() {
             var items = [];
 
             gallery.find( 'a' ).each( function() {
-                var href    = jq( this ).attr('href'),
-                    size    = jq( this ).data('size').split('x'),
+                var href    = jq( this ).attr( 'href' ),
+                    size    = jq( this ).data( 'size' ).split( 'x' ),
                     width  = size[0],
                     height = size[1];    
 
@@ -270,12 +271,12 @@ jq( document ).ready( function() {
         }
 
         harmonyDKUploadFrame = wp.media({
-            title: videoDKPosterContainer.length > 0 ? 'Select or Upload a Photo File' : videoDKURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
+            title: videoDKPosterContainer.length > 0 ? __( 'Select or Upload a Photo File', 'harmony' ) : videoDKURLContainer.length > 0 ? __( 'Select or Upload a Video File', 'harmony' ): __( 'Select or Upload a Audio File', 'harmony' ),
             library: {
                 type: videoDKPosterContainer.length > 0 ? 'image' : videoDKURLContainer.length > 0 ? 'video' : 'audio'
             },
             button: {
-                text: videoDKPosterContainer.length > 0 ? 'Add Photo' : videoDKURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
+                text: videoDKPosterContainer.length > 0 ? __( 'Add Photo', 'harmony' ) : videoDKURLContainer.length > 0 ? __( 'Add Video', 'harmony' ) : __( 'Add Audio', 'harmony' )
             },
             multiple: false
         })

@@ -1,4 +1,5 @@
-var jq = jQuery.noConflict();
+var jq = jQuery.noConflict(),
+    { __ } = wp.i18n;
 
 jq( document ).ready( function(){
 
@@ -61,12 +62,12 @@ jq( document ).ready( function(){
         }
 
         harmonyUploadFrame = wp.media({
-            title: videoPosterContainer.length > 0 ? 'Select or Upload a Photo File' : videoURLContainer.length > 0 ? 'Select or Upload a Video File': 'Select or Upload a Audio File',
+            title: videoPosterContainer.length > 0 ? __( 'Select or Upload a Photo File', 'harmony' ) : videoURLContainer.length > 0 ? __( 'Select or Upload a Video File', 'harmony' ): __( 'Select or Upload a Audio File', 'harmony'),
             library: {
                 type: videoPosterContainer.length > 0 ? 'image' : videoURLContainer.length > 0 ? 'video' : 'audio'
             },
             button: {
-                text: videoPosterContainer.length > 0 ? 'Add Photo' : videoURLContainer.length > 0 ? 'Add Video' : 'Add Audio'
+                text: videoPosterContainer.length > 0 ? __( 'Add Photo', 'harmony' ) : videoURLContainer.length > 0 ? __( 'Add Video', 'harmony' ) : __( 'Add Audio', 'harmony' )
             },
             multiple: false
         })

@@ -70,12 +70,12 @@ class Assets {
         $scripts = [
             'harmony-admin' => [
                 'src'       => HARMONY_ASSETS . '/js/admin.js',
-                'deps'      => [ 'jquery' ],
+                'deps'      => [ 'jquery', 'wp-i18n' ],
                 'in_footer' => true
             ],
             'harmony-frontend' => [
                 'src'       => HARMONY_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery', 'flexslider', 'photoswipe', 'zoom' ],
+                'deps'      => [ 'jquery', 'flexslider', 'photoswipe', 'zoom', 'wp-i18n' ],
                 'in_footer' => true
             ]
         ];

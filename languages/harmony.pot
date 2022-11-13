@@ -1,0 +1,155 @@
+# Copyright (C) 2022 Tanjir Al Mamun
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Harmony 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/harmony\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-11-13T15:41:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: harmony\n"
+
+#. Plugin Name of the plugin
+#: includes/Admin/Products.php:46
+#: templates/dokan-vendor.php:3
+msgid "Harmony"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/harmony"
+msgstr ""
+
+#. Description of the plugin
+msgid "Product Featured Audio Video Content"
+msgstr ""
+
+#. Author of the plugin
+msgid "Tanjir Al Mamun"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://tanjirsdev.com"
+msgstr ""
+
+#: harmony.php:211
+msgid "View Harmony settings"
+msgstr ""
+
+#: harmony.php:211
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/Products.php:81
+#: templates/dokan-vendor.php:12
+msgid "Product Video"
+msgstr ""
+
+#: includes/Admin/Products.php:103
+#: templates/dokan-vendor.php:28
+msgid "YouTube"
+msgstr ""
+
+#: includes/Admin/Products.php:106
+#: includes/Admin/Products.php:202
+#: templates/dokan-vendor.php:31
+#: templates/dokan-vendor.php:95
+msgid "File Upload"
+msgstr ""
+
+#: includes/Admin/Products.php:116
+#: includes/Admin/Products.php:142
+msgid "Product Video URL"
+msgstr ""
+
+#: includes/Admin/Products.php:117
+msgid "YouTube Video URL"
+msgstr ""
+
+#: includes/Admin/Products.php:126
+msgid "Product Video Poster"
+msgstr ""
+
+#: includes/Admin/Products.php:136
+#: includes/Admin/Products.php:152
+#: includes/Admin/Products.php:233
+#: templates/dokan-vendor.php:57
+#: templates/dokan-vendor.php:65
+#: templates/dokan-vendor.php:119
+msgid "Choose File"
+msgstr ""
+
+#: includes/Admin/Products.php:176
+#: templates/dokan-vendor.php:74
+msgid "Product Audio"
+msgstr ""
+
+#: includes/Admin/Products.php:199
+#: templates/dokan-vendor.php:92
+msgid "SoundCloud"
+msgstr ""
+
+#: includes/Admin/Products.php:213
+#: includes/Admin/Products.php:223
+msgid "Product Audio URL"
+msgstr ""
+
+#: includes/Admin/Products.php:214
+msgid "Soundcloud URL"
+msgstr ""
+
+#. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
+#: includes/functions.php:17
+msgid "%1$sHarmony is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for Harmony to work. Please %5$s install WooCommerce &raquo;%6$s"
+msgstr ""
+
+#. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
+#: includes/functions.php:22
+msgid "%1$sHarmony is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for Harmony to work. Please %5$s activate WooCommerce &raquo;%6$s"
+msgstr ""
+
+#: templates/dokan-vendor.php:4
+msgid "Product Audio & Video Content"
+msgstr ""
+
+#: templates/dokan-vendor.php:41
+msgid "Paste YouTube URL"
+msgstr ""
+
+#: templates/dokan-vendor.php:105
+msgid "Paste SoundCloud URL"
+msgstr ""
+
+#: assets/js/admin.js:65
+#: assets/js/frontend.js:274
+msgid "Select or Upload a Photo File"
+msgstr ""
+
+#: assets/js/admin.js:65
+#: assets/js/frontend.js:274
+msgid "Select or Upload a Video File"
+msgstr ""
+
+#: assets/js/admin.js:65
+#: assets/js/frontend.js:274
+msgid "Select or Upload a Audio File"
+msgstr ""
+
+#: assets/js/admin.js:70
+#: assets/js/frontend.js:279
+msgid "Add Photo"
+msgstr ""
+
+#: assets/js/admin.js:70
+#: assets/js/frontend.js:279
+msgid "Add Video"
+msgstr ""
+
+#: assets/js/admin.js:70
+#: assets/js/frontend.js:279
+msgid "Add Audio"
+msgstr ""

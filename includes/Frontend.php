@@ -31,6 +31,8 @@ class Frontend {
         wp_enqueue_style( 'harmony-flexslider' );
         wp_enqueue_style( 'harmony-frontend' );
         wp_enqueue_script( 'harmony-frontend' );
+
+        wp_set_script_translations( 'harmony-frontend', 'harmony', plugin_dir_path( __FILE__ ) . 'languages' );
     }
 
     /**

@@ -18,6 +18,8 @@ class Admin {
     public function enqueue_scripts() {
         wp_enqueue_style( 'harmony-admin' );
         wp_enqueue_script( 'harmony-admin' );
+
+        wp_set_script_translations( 'harmony-admin', 'harmony', plugin_dir_path( __FILE__ ) . 'languages' );
     }
 
 }
