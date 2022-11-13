@@ -99,10 +99,10 @@ class Products {
 
         <div class="options_group harmony-option-group-wrapper harmony-product_featured_video">
             <div class="harmony_type_container">
-                <label for="harmony_youtube_video"><input type="radio" name="harmony_featured_video_type" value="youtube_video" id="harmony_youtube_video" <?php echo esc_attr( $youtube_video_radio ); ?>> 
+                <label for="harmony_youtube_video"><input type="radio" name="harmony_featured_video_type" value="youtube_video" id="harmony_youtube_video" <?php isset( $youtube_video_radio ) ? esc_attr_e( $youtube_video_radio ): ''; ?>> 
                     <?php _e( 'YouTube', 'harmony' ); ?>
                 </label>
-                <label for="harmony_wpmedia_video"><input type="radio" name="harmony_featured_video_type" value="wpmedia_video" id="harmony_wpmedia_video" <?php echo esc_attr( $wpmedia_video_radio ); ?>> 
+                <label for="harmony_wpmedia_video"><input type="radio" name="harmony_featured_video_type" value="wpmedia_video" id="harmony_wpmedia_video" <?php isset( $wpmedia_video_radio ) ? esc_attr_e( $wpmedia_video_radio ) : ''; ?>> 
                     <?php _e( 'File Upload', 'harmony' ); ?>
                 </label>
             </div>
@@ -116,7 +116,7 @@ class Products {
                     'label'         => __( 'Product Video URL', 'harmony' ),
                     'description'   => __( 'YouTube Video URL', 'harmony' ),
                     'desc_tip'      => true,
-                    'wrapper_class' => 'harmony-form-field ' . $youtube_video_input
+                    'wrapper_class' => isset( $youtube_video_input ) ? 'harmony-form-field ' . $youtube_video_input : 'harmony-form-field'
                 ] );
             ?>
 
@@ -195,10 +195,10 @@ class Products {
         <div class="options_group harmony-option-group-wrapper harmony-product_sample_audio">
     
             <div class="harmony_type_container">
-                <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php echo esc_attr( $sc_audio_radio ); ?>> 
+                <label for="harmony_sc_audio"><input type="radio" name="harmony_product_audio_type" value="sc_audio" id="harmony_sc_audio" <?php isset( $sc_audio_radio ) ? esc_attr_e( $sc_audio_radio ) : ''; ?>> 
                     <?php _e( 'SoundCloud', 'harmony' ) ?>
                 </label>
-                <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php echo esc_attr( $wpmedia_audio_radio ); ?>> 
+                <label for="harmony_wpmedia_audio"><input type="radio" name="harmony_product_audio_type" value="wpmedia_audio" id="harmony_wpmedia_audio" <?php isset( $wpmedia_audio_radio ) ? esc_attr_e( $wpmedia_audio_radio ) : ''; ?>> 
                     <?php _e( 'File Upload', 'harmony' ) ?>
                 </label>
             </div>
@@ -213,7 +213,7 @@ class Products {
                     'label'         => __( 'Product Audio URL', 'harmony' ),
                     'description'   => __( 'Soundcloud URL', 'harmony' ),
                     'desc_tip'      => true,
-                    'wrapper_class' => 'harmony-form-field ' . $sc_audio_input
+                    'wrapper_class' => isset( $sc_audio_input ) ? 'harmony-form-field ' . $sc_audio_input : 'harmony-form-field'
                 ] );
     
             ?>
