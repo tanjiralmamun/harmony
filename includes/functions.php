@@ -25,7 +25,7 @@ function harmony_woocommerce_not_active_notice(){
 
         if ( $admin_notice_content ) {
             echo '<div class="error">';
-            echo '<h3>'. esc_html__( 'WooCommerce Missing', 'wepos' ) . '</h3>';
+            echo '<h3>'. esc_html__( 'WooCommerce Missing', 'harmony' ) . '</h3>';
             echo '<p>' . wp_kses_post( $admin_notice_content ) . '</p>';
             echo '</div>';
         }
