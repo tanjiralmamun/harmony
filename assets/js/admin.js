@@ -87,4 +87,33 @@ jq( document ).ready( function(){
 
     } )
 
+    /* 
+    * Harmony Settings
+    *
+    * For managing the Tab View and save the active tab in the local storage.
+    * 
+    */
+    var harmonyActiveTab = localStorage.getItem( 'harmonyActiveTab' );
+    if ( typeof(localStorage) != 'undefined' ) {
+        var target   = jq( '.harmony-settings-tab' ).find( 'a[href="' + harmonyActiveTab + '"]' ),
+            targetID = target.attr('href').split( '#', 2 );
+            
+        jq( '.harmony-settings' ).find( '.harmony_active' ).removeClass( 'harmony_active' );
+        target.addClass( 'harmony_active' );
+        jq( '.harmony-settings-tab-content' ).find( '#' + targetID[1] ).addClass( 'harmony_active' );
+    }
+
+    jq( '.harmony-settings-tab a' ).on( 'click', function( e ){
+        e.preventDefault();
+        var activeTab = jq( '.harmony-settings' ).find( '.harmony_active' );
+            targetID  = jq( this ).attr( 'href' ).split( '#', 2 );
+
+        activeTab.removeClass( 'harmony_active' );
+        jq( this ).addClass( 'harmony_active' );
+
+        jq( '.harmony-settings-tab-content' ).find( '#' + targetID[1] ).addClass( 'harmony_active' );
+        
+        localStorage.setItem( 'harmonyActiveTab', jq( this ).attr( 'href' ) );
+    } )
+
 } )

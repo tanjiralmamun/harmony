@@ -8,6 +8,12 @@
         <div class="dokan-clearfix"></div>
     </div>
 
+    <?php
+
+        $disable_dk_video_field = get_option( 'disable_dk_video_field' );
+        if( $disable_dk_video_field !== 'on' ):
+
+    ?>
     <div class="dokan-section-content harmony-video-content">
         <h3 class="harmony-dk-sub-heading"><?php _e( 'Product Video', 'harmony') ?> </h3>
 
@@ -68,7 +74,14 @@
         </div>
         <div class="dokan-clearfix"></div>
     </div>
-    <!-- Harmony Video Content -->
+    <?php 
+        endif; 
+        // Harmony Video Content
+
+        $disable_dk_audio_field = get_option( 'disable_dk_audio_field' );
+        if( $disable_dk_audio_field !== 'on' ):
+
+    ?>
 
     <div class="dokan-section-content harmony-audio-content">
         <h3 class="harmony-dk-sub-heading"><?php _e( 'Product Audio', 'harmony') ?> </h3>
@@ -122,6 +135,7 @@
 
         <div class="dokan-clearfix"></div>
     </div>
+    <?php endif; ?>
     <!-- Harmony Audio Content -->
     
 </div><!-- Harmony Content -->
