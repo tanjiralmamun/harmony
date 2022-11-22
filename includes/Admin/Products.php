@@ -18,15 +18,24 @@ class Products {
      * 
      */
     public function __construct() {
+        $disable_wc_video = get_option( 'disable_wc_video' );
+        $disable_wc_audio = get_option( 'disable_wc_audio' );
+
         /* Admin Screen - New Tab */
-        add_filter( 'woocommerce_product_data_tabs', [ $this, 'harmony_edit_product_tab' ] );
-        add_action( 'woocommerce_product_data_panels', [ $this, 'harmony_edit_product_tab_content' ] );
+        if( $disable_wc_video !== 'on' || $disable_wc_audio !== 'on' ){
+            add_filter( 'woocommerce_product_data_tabs', [ $this, 'harmony_edit_product_tab' ] );
+            add_action( 'woocommerce_product_data_panels', [ $this, 'harmony_edit_product_tab_content' ] );
+        }
 
         /* Admin Screen - Product Video Fields */
-        add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_video_url_field' ], 10 );
+        if( $disable_wc_video !== 'on' ){
+            add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_video_url_field' ], 10 );
+        }
 
         /* Admin Screen - Product Audio Fields */
-        add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_audio_url_field' ], 11 );
+        if( $disable_wc_audio !== 'on' ){
+            add_action( 'harmony_product_tab_content', [ $this, 'harmony_product_audio_url_field' ], 11 );
+        }
 
         /* Admin Screen - Save Fields' Values */
         add_action( 'woocommerce_process_product_meta', [ $this, 'save_harmony_field_values' ], 10, 2 );

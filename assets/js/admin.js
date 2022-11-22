@@ -94,9 +94,9 @@ jq( document ).ready( function(){
     * 
     */
     var harmonyActiveTab = localStorage.getItem( 'harmonyActiveTab' );
-    if ( typeof(localStorage) != 'undefined' ) {
+    if ( harmonyActiveTab !== null ) {
         var target   = jq( '.harmony-settings-tab' ).find( 'a[href="' + harmonyActiveTab + '"]' ),
-            targetID = target.attr('href').split( '#', 2 );
+            targetID = target.attr( 'href' ).split( '#', 2 );
             
         jq( '.harmony-settings' ).find( '.harmony_active' ).removeClass( 'harmony_active' );
         target.addClass( 'harmony_active' );

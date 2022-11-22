@@ -32,37 +32,42 @@ class Admin {
 
     public function harmony_settings(){
         ?>
-        <div class="wrap harmony-settings">
+        <div class="wrap">
             <h1 class="wp-heading-inline"><?php echo get_admin_page_title() ?></h1>
             <?php settings_errors(); ?>
-            <h2 class="harmony-settings-tab">
-                <a href="#harmony-woocommerce" class="harmony-settings-tablinks harmony_active">
-                    <?php esc_html_e( 'WooCommerce Settings', 'harmony' ); ?>
-                </a>
-                <a href="#harmony-dokan" class="harmony-settings-tablinks">
-                    <?php esc_html_e( 'Dokan Settings', 'harmony' ) ?>
-                </a>
-            </h2>
+            <div class="harmony-settings">
+                <h2 class="harmony-settings-tab">
+                    <a href="#harmony-woocommerce" class="harmony-settings-tablinks harmony_active">
+                        <?php esc_html_e( 'WooCommerce Settings', 'harmony' ); ?>
+                    </a>
+                    <?php if( harmony()->has_dokan() ): ?>
+                        <a href="#harmony-dokan" class="harmony-settings-tablinks">
+                            <?php esc_html_e( 'Dokan Settings', 'harmony' ) ?>
+                        </a>
+                    <?php endif; ?>
+                </h2>
 
-            <div class="harmony-settings-tab-content">
-                <div class="form-wrapper harmony_active" id="harmony-woocommerce">
-                    <form method="post" action="options.php">
-                        <?php
-                            settings_fields( 'harmony-woocommerce' );
-                            do_settings_sections( 'harmony-woocommerce' );                        
-                            submit_button();
-                        ?>
-                    </form>
-                </div>
-
-                <div class="form-wrapper" id="harmony-dokan">
-                    <form method="post" action="options.php">
-                        <?php
-                            settings_fields( 'harmony-dokan' );
-                            do_settings_sections( 'harmony-dokan' );                        
-                            submit_button();
-                        ?>
-                    </form>
+                <div class="harmony-settings-tab-content">
+                    <div class="form-wrapper harmony_active" id="harmony-woocommerce">
+                        <form method="post" action="options.php">
+                            <?php
+                                settings_fields( 'harmony-woocommerce' );
+                                do_settings_sections( 'harmony-woocommerce' );                        
+                                submit_button();
+                            ?>
+                        </form>
+                    </div>
+                <?php if( harmony()->has_dokan() ): ?>
+                    <div class="form-wrapper" id="harmony-dokan">
+                        <form method="post" action="options.php">
+                            <?php
+                                settings_fields( 'harmony-dokan' );
+                                do_settings_sections( 'harmony-dokan' );                        
+                                submit_button();
+                            ?>
+                        </form>
+                    </div>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
