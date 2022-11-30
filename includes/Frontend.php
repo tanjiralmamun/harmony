@@ -27,8 +27,10 @@ class Frontend {
         $disable_dk_video_field = get_option( 'disable_dk_video_field' );
         $disable_dk_audio_field = get_option( 'disable_dk_audio_field' );
 
-        if( $disable_dk_video_field !== 'on' || $disable_dk_audio_field !== 'on' ){
-            add_action( 'dokan_product_edit_after_main', [ $this, 'load_harmony_content_template' ], 4, 2 );
+        if( $disable_wc_video !== 'on' || $disable_wc_audio !== 'on' ){
+            if( $disable_dk_video_field !== 'on' || $disable_dk_audio_field !== 'on' ){
+                add_action( 'dokan_product_edit_after_main', [ $this, 'load_harmony_content_template' ], 4, 2 );
+            }
         }
 
         //Save vendor dashboard harmony content field values
@@ -41,9 +43,11 @@ class Frontend {
      * @return void
      */
     public function enqueue_scripts(){
-        wp_enqueue_style( 'harmony-flexslider' );
-        wp_enqueue_style( 'harmony-frontend' );
-        wp_enqueue_script( 'harmony-frontend' );
+        if( is_product() || harmony()->has_dokan() && dokan_is_seller_dashboard() ){
+            wp_enqueue_style( 'harmony-flexslider' );
+            wp_enqueue_style( 'harmony-frontend' );
+            wp_enqueue_script( 'harmony-frontend' );
+        }
 
         wp_set_script_translations( 'harmony-frontend', 'harmony', plugin_dir_path( __FILE__ ) . 'languages' );
     }

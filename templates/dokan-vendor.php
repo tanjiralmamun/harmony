@@ -1,3 +1,15 @@
+<?php
+
+    $disable_wc_video = get_option( 'disable_wc_video' );
+    $disable_wc_audio = get_option( 'disable_wc_audio' );
+    $disable_dk_video_field = get_option( 'disable_dk_video_field' );
+    $disable_dk_audio_field = get_option( 'disable_dk_audio_field' );
+    
+    if( $disable_wc_audio !== 'on' && $disable_dk_audio_field == 'on' || $disable_wc_video !== 'on' && $disable_dk_video_field == 'on' ){
+        return;
+    }
+
+?>
 <div class="harmony-content dokan-edit-row">
     <div class="dokan-section-heading" data-togglehandler="harmony_content">
         <h2><i class="fas fa-icons" aria-hidden="true"></i> <?php _e( 'Harmony', 'harmony' ); ?></h2>
@@ -10,8 +22,7 @@
 
     <?php
 
-        $disable_dk_video_field = get_option( 'disable_dk_video_field' );
-        if( $disable_dk_video_field !== 'on' ):
+        if( $disable_wc_video !== 'on' && $disable_dk_video_field !== 'on' ):
 
     ?>
     <div class="dokan-section-content harmony-video-content">
@@ -76,10 +87,9 @@
     </div>
     <?php 
         endif; 
-        // Harmony Video Content
+        // end of Harmony Video Content
 
-        $disable_dk_audio_field = get_option( 'disable_dk_audio_field' );
-        if( $disable_dk_audio_field !== 'on' ):
+        if( $disable_wc_audio !== 'on' && $disable_dk_audio_field !== 'on' ):
 
     ?>
 
