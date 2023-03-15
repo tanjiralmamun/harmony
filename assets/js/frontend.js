@@ -10,7 +10,23 @@ jq( document ).ready( function() {
         animationLoop: false,
         slideshow: false,
         directionNav: false,
-        smoothHeight: true
+        smoothHeight: true,
+        after: function(e){
+            var youtubePopupVideoWrapper = jq( '.featured-video.youtube' );
+            if( youtubePopupVideoWrapper.length > 0 ){
+                var youtubePopupiFrameSrc = youtubePopupVideoWrapper.find( 'iframe' ).attr( 'src' );
+                youtubePopupVideoWrapper.find('iframe').attr('src', youtubePopupiFrameSrc);
+            }
+
+            var wpmediaPopupVideoWrapper = jq( '.featured-video.wpmedia' );
+            if( wpmediaPopupVideoWrapper.length > 0 ){
+                var wpmediaVideo = wpmediaPopupVideoWrapper.find( 'video' ).get(0);
+                function pauseWPMediaVideo(){
+                    wpmediaVideo.pause();
+                }
+                pauseWPMediaVideo();
+            }
+        }
     });
 
     jq('.flex-prev').empty();
@@ -151,8 +167,8 @@ jq( document ).ready( function() {
     jq( '#harmony-product-gallery' ).on( 'click', 'a.harmony-gallery_trigger', function( e ) {
         e.preventDefault();
         
-        var $index = jq( this ).index();
-        var options = {
+        var $index = jq( this ).index(),
+            options = {
             index: $index,
             bgOpacity: 1,
             showHideOpacity: true
