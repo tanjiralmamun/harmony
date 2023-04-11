@@ -119,7 +119,7 @@
             </label>
         </div>
 
-        <div class="dokan-form-group harmony-dk-sc-audio <?php echo esc_attr( $sc_audio_input ); ?>">
+        <div class="dokan-form-group harmony-dk-sc-audio <?php isset( $sc_audio_input ) ? esc_attr_e( $sc_audio_input ): ''; ?>">
             <?php
                 dokan_post_input_box( 
                     $post_id,
